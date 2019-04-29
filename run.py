@@ -12,15 +12,15 @@ from IPython import embed
 def main(planning_env, planner, start, goal):
 
     # Notify.
-    raw_input('Press any key to begin planning')
+    # raw_input('Press any key to begin planning')
 
     # Plan.
     plan = planner.Plan(start, goal)
 
     # Shortcut the path.
-    # TODO (student): Do not shortcut when comparing the performance of algorithms. 
+    # TODO (student): Do not shortcut when comparing the performance of algorithms.
     # Comment this line out when collecting data over performance metrics.
-    plan_short = planner.ShortenPath(plan)
+    # plan_short = planner.ShortenPath(plan)
 
     # Visualize the final path.
     planning_env.visualize_plan(plan)
@@ -28,11 +28,11 @@ def main(planning_env, planner, start, goal):
 
 
 if __name__ == "__main__":
-    
+
     parser = argparse.ArgumentParser(description='script for testing planners')
 
     parser.add_argument('-m', '--map', type=str, default='map1.txt',
-                        help='The environment to plan on')    
+                        help='The environment to plan on')
     parser.add_argument('-p', '--planner', type=str, default='rrt',
                         help='The planner to run (star, rrt, rrtstar)')
     parser.add_argument('-s', '--start', nargs='+', type=int, required=True)
